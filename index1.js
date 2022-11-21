@@ -1,37 +1,39 @@
-// Створити функцію, яка з 2 масивів створює
-// об'єкт та повертає його
-// 1 - ключі, 2 значення
+// Вивести перші букви ключів об'єкта,
+// Та створити функцію яка повертає об'єкт
+// з кількістю повторення букв
 
-const keys = ["first", "second", "third"];
-const values = ["valueFirst", "valueSecond", "valueThird"];
+const objValues = {
+  first: "valueFirst",
+  second: "valueSecond",
+  third: "valueThird",
+  fourth: "valueFourth",
+  Fifth: "valueFifth",
+  sixth: "valueSixth",
+};
 
-function createObj() {
-  const newObj = {};
-  //   for (const key of keys) {
-  //     let index = keys.indexOf(key);
-  //     newObj[key] = values[index];
-  //   }
+console.log(counterFirstLetters(objValues));
 
-  for (let i = 0; i < keys.length; i++) {
-    if (values[i + 1]) {
-      newObj[keys[i]] = values[i + 1];
+// {
+//   f: 3,
+//   t: 1,
+//   s: 2
+// }
+
+function counterFirstLetters(obj) {
+  const FirstLettersObj = {};
+
+  for (const key in obj) {
+    const firstLetter = key[0].toLowerCase();
+
+    // console.log(FirstLettersObj[firstLetter]);
+
+    if (FirstLettersObj.hasOwnProperty(firstLetter)) {
+      FirstLettersObj[firstLetter] += 1;
       continue;
     }
 
-    newObj[keys[i]] = "no values";
+    FirstLettersObj[firstLetter] = 1;
   }
 
-  return newObj;
+  return FirstLettersObj;
 }
-
-console.log(createObj());
-
-// for(let i = 0; i < ; i++)
-
-// const obj = {
-//   key: "keyValue",
-// };
-
-// obj.test = "testValue";
-
-// console.log(obj);

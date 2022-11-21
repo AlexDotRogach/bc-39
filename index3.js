@@ -1,32 +1,28 @@
-// Вивести кількість вкладених об'єктів в об'єкті
+// Є масив об'єктів потрібно на перебір виводити лише
+// 2 ключі isPublic, rating
+// додатково вивести середне число рейтингу
 
-const user = {
-  name: "Jacques Gluke",
-  tag: "jgluke",
-  location: {
-    country: "Jamaica",
-    city: "Ocho Rios",
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["historical prose", "adventure"],
+    isPublic: true,
+    rating: 8.38,
   },
-  stats1: {
-    followers: 5603,
-    views: 4827,
-    likes: 1308,
+  {
+    title: "Jacques Gluke",
+    author: "Author",
+    genres: ["adventure"],
+    isPublic: false,
+    rating: 6.38,
   },
-  arr: [11, 22, 33],
-};
-
-function objectCounter(object) {
-  let counter = 0;
-
-  for (const key in object) {
-    console.log(object[key]);
-
-    if ("object" === typeof object[key] && !Array.isArray(object[key])) {
-      counter += 1;
-    }
+];
+function avgRating(books) {
+  for (const { isPublic, rating } of books) {
+    const publicBook = isPublic ? "Публічний" : "Непублічний";
+    const info = `Тип книги - ${publicBook}, рейтинг - ${rating}`;
+    console.log(info);
   }
-
-  return counter;
 }
-
-console.log(objectCounter(user));
+avgRating(books);

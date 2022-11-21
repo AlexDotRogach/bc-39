@@ -1,28 +1,19 @@
-// Створити функцію, яка з об'єкта
-// створює масиви та повертає масив цих масивів
-// 1 - ключі, 2 значення
+// Знайти найбільше значення масиву
+const arr = [14, 300, 32, 12, 43, -23];
 
-const obj = {
-  first: "valueFirst",
-  second: "valueSecond",
-  third: "valueThird",
-};
+function maxNumber(arr) {
+  let compareNumber = arr[0];
 
-function createArr(obj) {
-  const keys = [];
-  const values = [];
-
-  // for (const key in obj) {
-  //   keys.push(key);
-  //   values.push(obj[key]);
-  // }
-
-  // for (const key of Object.keys(obj)) {
-  //   keys.push(key);
-  //   values.push(obj[key]);
-  // }
-
-  return { keys: keys, values: values };
+  for (const item of arr) {
+    if (compareNumber < item) {
+      compareNumber = item;
+    }
+  }
+  return compareNumber;
 }
 
-console.log(createArr(obj));
+console.log(maxNumber(arr));
+
+console.log(...arr);
+
+console.log(Math.min(...arr));
