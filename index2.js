@@ -1,33 +1,18 @@
-// Дано масив з рядками.
-// Створіть функцію
-// яка переверне символи кожного рядка
-// у зворотному порядку.
+// Створити функцію, яка буде
+// виводити в консоль привітання і
+// Статичне ім'я (наприклад, user).
+// Перебрати масив і на кожній ітерації її викликати
 
-const strings = ["java", "sql", "javaScript", "c++", "node"];
+const objSpecWords = [
+  { welcome: "Hello!", order: 1 },
+  { welcome: "Hi!", order: 2 },
+  { welcome: "Good evening!", order: 3 },
+];
 
-// function reverseStrings(array) {
-//   const newArray = [];
-//   array.forEach((item) => {
-//     item.split("").reverse().join("");
-//     newArray.push(item.split("").reverse().join(""));
-//   });
-//   return newArray;
-// }
+function showWelcome(name) {
+  console.log(`${name},${this.welcome}`);
+}
 
-// function reverseStrings(array) {
-//   return array.map(reverseWords);
-// }
-
-// function reverseWords(word) {
-//   return word.split("").reverse().join("");
-// }
-
-// console.log(reverseStrings(strings));
-
-console.log(
-  strings.reduce((total, string) => {
-    total.push(string.split("").reverse().join(""));
-
-    return total;
-  }, [])
-);
+objSpecWords.forEach((word) => {
+  showWelcome.call(word, "Alex");
+});

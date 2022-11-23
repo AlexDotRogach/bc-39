@@ -1,45 +1,52 @@
-// Спростіть коллбек через стрілочну функцію.
+// Створити функцію конструктор робітника
+// Створити метод у об'єкта
+// який буде рахувати заробітну плату (salary * workDay)
+// Та перебрати масив і викликати цей метод для кожного елемента
 
-// let result = every([1, -1, 3, 4, 5], function (elem) {
-//   if (elem > 0) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// });
+const employees = [
+  {
+    name: "Alex",
+    salary: 500,
+    workDay: 5,
+  },
+  {
+    name: "Dima",
+    salary: 200,
+    workDay: 3,
+  },
+  {
+    name: "Vasya",
+    salary: 600,
+    workDay: 21,
+  },
+  {
+    name: "Sergei",
+    salary: 400,
+    workDay: 23,
+  },
+];
 
-// function every(arr, callback) {
-//   const newArr = [];
-
-//   arr.forEach((element) => {
-//     newArr.push(callback(element));
-//   });
-
-//   return newArr;
-// }
-
-// console.log(result);
-
-// function bulleanCheck(array) {
-//   const trueArray = array.filter((item) => item > 0).map(() => true);
-//   const falseArray = array.filter((item) => item < 0).map(() => false);
-
-//   return trueArray.concat(falseArray);
-// }
-// console.log(bulleanCheck([1, -1, 3, 4, 5]));
-
-function bulleanCheck(array) {
-  return array.reduce((acc, item) => {
-    // if (item > 0) {
-    //   acc.push(true);
-    //   return acc;
-    // }
-    // acc.push(false);
-    // return acc;
-
-    item > 0 ? acc.push(true) : acc.push(false);
-    return acc;
-  }, []);
+function Employee({ name, salary, workDay }, sumSalary) {
+  this.name = name;
+  this.salary = salary;
+  this.workDay = workDay;
+  this.sumSalary = sumSalary;
 }
 
-console.log(bulleanCheck([1, -1, 3, 4, 5]));
+function calcSalary() {
+  return this.salary * this.workDay;
+}
+
+const allEmployees = employees.map(
+  (employee) => new Employee(employee, calcSalary)
+);
+
+console.log(allEmployees);
+
+const allSalary = allEmployees.reduce((acum, employee) => {
+  acum += employee.sumSalary();
+
+  return acum;
+}, 0);
+
+console.log(allSalary);

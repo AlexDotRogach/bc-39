@@ -1,14 +1,15 @@
-// Даний масив із числами.
-// Створіть функцію
-// яка буде збільшивати
-// кожний елемент удвічі.
+// Дописати функцію showAllFriends
+// так, щоб вона виводила всіх друзів
+// і викликати її у правильному контексті
 
-const numbers = [1, 3, 4, 5, 6, 7, 8, 9, 10];
-const numbersSecond = [1, 3, 2, 5];
+const student = {
+  name: "Student1",
+  friends: ["Student2", "Student3", "Student4"],
+};
 
-// const doubleNumbers = numbers.map((number) => number * 2);
-const doubleNumbers = (array) => array.map((item) => item * 2);
+function showFriends(...parametr) {
+  console.log(parametr);
+  console.log(...this.friends);
+}
 
-// console.log(doubleNumbers);
-console.log(doubleNumbers(numbers));
-console.log(doubleNumbers(numbersSecond));
+showFriends.apply(student, [1, 2, 3]);
