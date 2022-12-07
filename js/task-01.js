@@ -1,20 +1,11 @@
-// Дано посилання. Прив'яжіть всім
-// посиланням подію - за наведенням на
-// посилання в атрибут title запишеться її текст.
+// реалізувати на основі вспливання зміну коліру
 
-const selectEl = document.querySelectorAll("a");
-console.log(selectEl);
+const divs = document.querySelectorAll("div");
 
-for (const el of selectEl) {
-  el.addEventListener("mouseout", addTitle);
-}
+divs.forEach((div) => {
+  div.addEventListener("click", clickDiv);
+});
 
-function addTitle(event) {
-  const target = event.target;
-  const text = target.textContent;
-
-  target.dataset.title = text;
-  target.setAttribute("title", text);
-  target.removeAttribute("title");
-  console.log(target.getAttribute("title"));
+function clickDiv(e) {
+  console.log(e.currentTarget);
 }

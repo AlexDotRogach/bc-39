@@ -8,9 +8,27 @@
     <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
-    <p>2</p>
-    <p>4</p>
-    <p>6</p>
+    <div class="info">
+      информация
+      <div class="info-more hide">
+        Много информации
+        <div class="info-more__additional hide">Еще больше!</div>
+      </div>
+    </div>
     <script src="js/task-02.js" type="module"></script>
   </body>
+  <style>
+    .info,
+    .info > * {
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
 </html>
