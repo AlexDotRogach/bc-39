@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+    }
+    .r {
+      background-color: red;
+    }
+
+    .y {
+      background-color: yellow;
+    }
+
+    .g {
+      background-color: green;
+    }
+
+    .p {
+      background-color: purple;
+    }
+    div > * {
+      width: calc(+150%);
+      transform: translateY(calc(100%));
+    }
+
+    .up {
+      transform: translateX(300px);
+    }
+  </style>
+  <body>
+    <div class="r" data-time="5s">
+      <div class="y" data-time="7s">
+        <div class="g" data-time="9s">
+          <div class="p" data-time="12s"></div>
+        </div>
+      </div>
+    </div>
+    <button class="up"></button>
+    <script src="js/task-02.js" type="module"></script>
+    <script>
+      document
+        .querySelectorAll("div")
+        .forEach(
+          (item) =>
+            (item.style.transition = `background-color ${item.dataset.time}`)
+        );
+    </script>
+  </body>
+</html>
