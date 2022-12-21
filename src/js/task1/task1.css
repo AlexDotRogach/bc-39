@@ -1,0 +1,11 @@
+.main {
+  margin-left: 50px;
+}
+
+.data {
+  display: flex;
+}
+
+.date {
+  margin-left: 10px;
+}

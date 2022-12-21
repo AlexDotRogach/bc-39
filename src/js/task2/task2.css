@@ -1,0 +1,8 @@
+.main {
+  margin: 30px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+}
